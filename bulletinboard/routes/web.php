@@ -14,5 +14,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.index');
+});
+
+Route::get('/login', function () {
+    return view('users.login');
+});
+
+Route::get('/post/list', function () {
+    return view('posts.list');
+});
+
+Route::get('/post/create', function () {
+    return view('posts.create');
+});
+
+Route::get('/post/create/confirm', function () {
+    return view('posts.create-confirm');
+});
+
+Route::get('/post/edit', function () {
+    return view('posts.edit');
+});
+
+Route::get('/post/edit/confirm', function () {
+    return view('posts.edit-confirm');
+});
+
+Route::get('/user/list', function () {
+    return view('users.list');
+});
+
+Route::get('/user/register', function () {
+    return view('users.register');
+});
+
+Route::get('/user/register/confirm', function () {
+    return view('users.register-confirm');
 });
