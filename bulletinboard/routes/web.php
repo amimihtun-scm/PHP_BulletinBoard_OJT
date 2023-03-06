@@ -41,6 +41,10 @@ Route::get('/post/edit/confirm', function () {
     return view('posts.edit-confirm');
 });
 
+Route::get('/post/uploadCSV', function () {
+    return view('posts.upload-csv');
+});
+
 Route::get('/user/list', function () {
     return view('users.list');
 });
