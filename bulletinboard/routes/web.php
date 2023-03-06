@@ -56,3 +56,7 @@ Route::get('/user/register/confirm', function () {
 Route::get('/user/show', function () {
     return view('users.show');
 });
+
+Route::get('/user/edit', function () {
+    return view('users.edit');
+});
