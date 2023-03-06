@@ -46,8 +46,11 @@
                             <div class="form-group row mb-3">
                                 <label for="type" class="col-3 col-form-label">Type</label>
                                 <div class="col-9">
-                                    <input type="text" class="form-control" id="type" name="type" value="Admin"
-                                        disabled>
+                                    <select class="form-select" disabled aria-label="Default select example">
+                                        <option>Choose a Type</option>
+                                        <option value="0" selected>Admin</option>
+                                        <option value="1">User</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
