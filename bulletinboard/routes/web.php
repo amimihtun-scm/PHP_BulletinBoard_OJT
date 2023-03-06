@@ -60,3 +60,7 @@ Route::get('/user/show', function () {
 Route::get('/user/edit', function () {
     return view('users.edit');
 });
+
+Route::get('/user/changePwd', function () {
+    return view('users.change-password');
+});
