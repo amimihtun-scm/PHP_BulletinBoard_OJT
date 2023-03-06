@@ -64,3 +64,7 @@ Route::get('/user/edit', function () {
 Route::get('/user/changePwd', function () {
     return view('users.change-password');
 });
+
+Route::get('/user/resetPwd', function () {
+    return view('users.reset-password');
+});
