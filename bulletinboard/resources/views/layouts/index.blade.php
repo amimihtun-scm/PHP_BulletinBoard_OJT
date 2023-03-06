@@ -41,7 +41,7 @@
     </nav>
     <!--/.nav -->
     @yield('content')
-    <footer class="container-fluid bg-light py-3">
+    <footer class="container-fluid bg-light py-3 fixed-bottom">
         <div class="row text-success justify-content-between align-items-center">
             <div class="col-6">
                 <h5><a href="#" class="text-decoration-none text-success">Seattle Consulting Myanmar</a></h5>

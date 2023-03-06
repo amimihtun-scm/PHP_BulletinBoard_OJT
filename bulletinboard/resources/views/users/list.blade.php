@@ -1,8 +1,8 @@
 @extends('layouts.index')
 @section('content')
-    <div class="container">
-        <div class="row mt-3 mb-3">
-            <div class="col-10 offset-1">
+    <div class="container justify-content-center my-5">
+        <div class="row">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header bg-success text-white">
                         User List
