@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
-    <div class="container justify-content-center my-5">
-        <div class="row">
+    <div class="container">
+        <div class="row justify-content-center my-5">
             <div class="col-6">
                 <div class="card">
                     <div class="card-header bg-success text-white">
