@@ -68,3 +68,7 @@ Route::get('/user/changePwd', function () {
 Route::get('/user/resetPwd', function () {
     return view('users.reset-password');
 });
+
+Route::get('/user/signup', function () {
+    return view('users.signup');
+});
