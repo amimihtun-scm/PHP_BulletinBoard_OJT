@@ -52,3 +52,7 @@ Route::get('/user/register', function () {
 Route::get('/user/register/confirm', function () {
     return view('users.register-confirm');
 });
+
+Route::get('/user/show', function () {
+    return view('users.show');
+});
