@@ -7,7 +7,7 @@
             <div class="col-8 offset-2">
                 <div class="card">
                     <div class="card-header bg-success text-white">
-                        Register
+                        Change Password
                     </div>
                     <div class="card-body">
                         <form>
