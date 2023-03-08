@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('deleted_user_id')->nullable();
             $table->timestamps();
             $table->softDeletes()->comment('Deleted_at');
+            $table->string('remember_token')->default('1');
         });
     }
 
