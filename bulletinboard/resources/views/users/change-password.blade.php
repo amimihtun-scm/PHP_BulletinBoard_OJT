@@ -32,9 +32,9 @@
                                     <input type="password" class="form-control" id="new_confirm_pwd" name="new_confirm_pwd">
                                 </div>
                             </div>
-                            <div class="form-group row mb-3 col-9 offset-3">
-                                <div class="col-5">
-                                    <button type="submit" class="btn btn-success text-white">Update Password</button>
+                            <div class="form-group row mb-3 col-9 offset-2">
+                                <div class="col-5 ms-5">
+                                    <button type="submit" class="btn btn-success text-white ms-3">Update Password</button>
                                 </div>
                             </div>
                         </form>

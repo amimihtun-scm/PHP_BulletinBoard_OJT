@@ -25,16 +25,16 @@
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label class="col-3" for="flexSwitchCheckDefault">Status</label>
-                                <div class="form-check form-switch col-9">
-                                    <input class="form-check-input ms-1" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+                                <label class="col-2" for="flexSwitchCheckDefault">Status</label>
+                                <div class="form-check form-switch col-9 ms-3">
+                                    <input class="form-check-input px-3 py-2 ms-5" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
                                 </div>
                             </div>
-                            <div class="form-group row mb-3 col-9 offset-3">
-                                <div class="col-2">
+                            <div class="row mb-3 col-9 offset-3">
+                                <div class="col-1">
                                     <button type="submit" class="btn btn-success text-white">Edit</button>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-1">
                                     <button type="reset" class="btn btn-secondary">Clear</button>
                                 </div>
                             </div>

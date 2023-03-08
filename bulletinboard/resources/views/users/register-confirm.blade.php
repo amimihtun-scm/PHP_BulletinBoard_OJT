@@ -12,32 +12,28 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group row my-3">
-                                <label for="name" class="col-3 col-form-label">Name <span
-                                        class="asterisk">*</span></label>
+                                <label for="name" class="col-3 col-form-label">Name</label>
                                 <div class="col-9">
                                     <input type="text" class="form-control" id="name" name="name"
                                         value="Aung Aung" disabled>
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label for="email" class="col-3 col-form-label">E-Mail Address <span
-                                        class="asterisk">*</span></label>
+                                <label for="email" class="col-3 col-form-label">E-Mail Address</label>
                                 <div class="col-9">
                                     <input type="email" class="form-control" id="email" name="email"
                                         value="aungaung@gmail.com" disabled>
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label for="password" class="col-3 col-form-label">Password <span
-                                        class="asterisk">*</span></label>
+                                <label for="password" class="col-3 col-form-label">Password</label>
                                 <div class="col-9">
                                     <input type="password" class="form-control" id="password" name="password"
                                         value="111111" disabled>
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label for="confirm_password" class="col-3 col-form-label">Password Confirmation <span
-                                        class="asterisk">*</span></label>
+                                <label for="confirm_password" class="col-3 col-form-label">Password Confirmation</label>
                                 <div class="col-9">
                                     <input type="password" class="form-control" id="confirm_password"
                                         name="confirm_password" value="111111" disabled>
@@ -74,8 +70,7 @@
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label for="profile" class="col-3 col-form-label">Profile <span
-                                        class="asterisk">*</span></label>
+                                <label for="profile" class="col-3 col-form-label">Profile</label>
                                 <div class="col-9">
                                     <img class="user-profile" src="{{ asset('images/img_user.png') }}" alt="Profile Image">
                                 </div>
