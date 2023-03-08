@@ -53,7 +53,7 @@
                             <div class="form-group row mb-3">
                                 <label for="phone" class="col-3 col-form-label">Phone</label>
                                 <div class="col-9">
-                                    <input type="number" class="form-control" id="phone" name="phone">
+                                    <input type="text" class="form-control" id="phone" name="phone">
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
