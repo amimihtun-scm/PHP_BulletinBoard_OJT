@@ -2,61 +2,71 @@
 @section('content')
     <div class="container justify-content-center my-5">
         <div class="row">
-            <div class="col-10 offset-1">
-                @if (session('info'))
-                    <div class="alert alert-info">
-                        {{ session('info') }}
-                    </div>
-                @endif
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header bg-success text-white">
-                        Post List
+                        User List
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form class="mb-2">
                             <div class="row">
-                                <div class="form-group d-flex justify-content-between col-5 align-items-center">
-                                    <label for="keyword" class="form-label me-2">keyword:</label>
-                                    <input type="text" class="form-control" id="keyword" name="keyword">
+                                <div class="form-group col-2 d-flex justify-content-between align-items-center">
+                                    <label for="name" class="form-label me-2">Name:</label>
+                                    <input type="text" class="form-control" id="name" name="name">
                                 </div>
-                                <div class="col-6 offset-1">
+                                <div class="form-group col-2 d-flex justify-content-between align-items-center">
+                                    <label for="email" class="form-label me-2">Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="form-group col-3 d-flex justify-content-between align-items-center">
+                                    <label for="from" class="form-label me-2">From:</label>
+                                    <input type="date" class="form-control" id="from" name="from">
+                                </div>
+                                <div class="form-group col-3 d-flex justify-content-between align-items-center">
+                                    <label for="to" class="form-label me-2">To:</label>
+                                    <input type="date" class="form-control" id="to" name="to">
+                                </div>
+                                <div class="col-2">
                                     <button type="submit" class="btn btn-success text-white">Search</button>
-                                    <button type="submit" class="btn btn-success text-white">Create</button>
-                                    <button type="submit" class="btn btn-success text-white">Upload</button>
-                                    <button type="submit" class="btn btn-success text-white">Download</button>
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-12">
+                                <div class="col-12 overflow-scroll">
                                     <table class="table table-striped">
                                         <thead class="bg-info text-white">
                                             <tr>
-                                                <th>Post Title</th>
-                                                <th>Post Description</th>
-                                                <th>Post User</th>
-                                                <th>Post Date</th>
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Created User</th>
+                                                <th>Type</th>
+                                                <th>Phone</th>
+                                                <th>Date of Birth</th>
+                                                <th>Address</th>
+                                                <th>Created_date</th>
+                                                <th>Updated_date</th>
                                                 <th>Operation</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
+                                                <td>1</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <a href="" class="text-decoration-none" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal1">
-                                                        Title0
+                                                        Aung Aung
                                                     </a>
                                                 </td>
-                                                <td>Description0</td>
+                                                <td>aungaung@gmail.com</td>
+                                                <td>Aung Aung</td>
                                                 <td>Admin</td>
-                                                <td>2023/03/01</td>
+                                                <td>09236152837</td>
+                                                <td>2002/03/01</td>
+                                                <td>Insein</td>
+                                                <td>20022/03/01</td>
+                                                <td>20022/05/01</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -65,18 +75,23 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <td>2</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <a href="" class="text-decoration-none" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal1">
-                                                        Title1
+                                                        Mg Mg
                                                     </a>
                                                 </td>
-                                                <td>Description1</td>
-                                                <td>Admin</td>
-                                                <td>2023/02/10</td>
+                                                <td>mgmg@gmail.com</td>
+                                                <td>Mg Mg</td>
+                                                <td>User</td>
+                                                <td>09236152837</td>
+                                                <td>2002/03/01</td>
+                                                <td>Yangon</td>
+                                                <td>20022/03/01</td>
+                                                <td>20022/05/01</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -85,38 +100,23 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <td>3</td>
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <a href="" class="text-decoration-none" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal1">
-                                                        Title2
+                                                        Zaw Zaw
                                                     </a>
                                                 </td>
-                                                <td>Description2</td>
+                                                <td>zawzaw@gmail.com</td>
+                                                <td>Zaw Zaw</td>
                                                 <td>Admin</td>
-                                                <td>2022/12/21</td>
+                                                <td>09236152837</td>
+                                                <td>2002/03/01</td>
+                                                <td>Insein</td>
+                                                <td>20022/03/01</td>
+                                                <td>20022/05/01</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-info">Edit</button>
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <!-- Button trigger modal -->
-                                                    <a href="" class="text-decoration-none" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal1">
-                                                        Title3
-                                                    </a>
-                                                </td>
-                                                <td>Description3</td>
-                                                <td>Admin</td>
-                                                <td>2023/01/26</td>
-                                                <td>
-                                                    <button type="submit" class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -159,16 +159,28 @@
                         <p class="col-9">1</p>
                     </div>
                     <div class="row mb-2">
-                        <p class="col-3">Title</p>
-                        <p class="col-9">Title0</p>
+                        <p class="col-3">Name</p>
+                        <p class="col-9">Aung Aung</p>
                     </div>
                     <div class="row mb-2">
-                        <p class="col-3">Description</p>
-                        <p class="col-9">Description0</p>
+                        <p class="col-3">Email</p>
+                        <p class="col-9">aungaung@gmail.com</p>
                     </div>
                     <div class="row mb-2">
-                        <p class="col-3">Status</p>
-                        <p class="col-9">Active</p>
+                        <p class="col-3">Type</p>
+                        <p class="col-9">Admin</p>
+                    </div>
+                    <div class="row mb-2">
+                        <p class="col-3">Phone</p>
+                        <p class="col-9">09236152837</p>
+                    </div>
+                    <div class="row mb-2">
+                        <p class="col-3">Date of Birth</p>
+                        <p class="col-9">2002/03/01</p>
+                    </div>
+                    <div class="row mb-2">
+                        <p class="col-3">Address</p>
+                        <p class="col-9">Insein</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -184,21 +196,33 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Post Detail</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">User Detail</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row mb-2">
-                        <p class="col-4">Title</p>
-                        <p class="col-8">Title1</p>
+                        <p class="col-4">Name</p>
+                        <p class="col-8">Aung Aung</p>
                     </div>
                     <div class="row mb-2">
-                        <p class="col-4">Description</p>
-                        <p class="col-8">Description1</p>
+                        <p class="col-4">Email</p>
+                        <p class="col-8">aungaung@gmail.com</p>
                     </div>
                     <div class="row mb-2">
-                        <p class="col-4">Status</p>
-                        <p class="col-8">Active</p>
+                        <p class="col-4">Type</p>
+                        <p class="col-8">Admin</p>
+                    </div>
+                    <div class="row mb-2">
+                        <p class="col-4">Phone</p>
+                        <p class="col-8">09236152837</p>
+                    </div>
+                    <div class="row mb-2">
+                        <p class="col-4">Date of Birth</p>
+                        <p class="col-8">2002/03/01</p>
+                    </div>
+                    <div class="row mb-2">
+                        <p class="col-4">Address</p>
+                        <p class="col-8">Insein</p>
                     </div>
                     <div class="row mb-2">
                         <p class="col-4">Created Date</p>

@@ -4,7 +4,6 @@ namespace App\Services\Post;
 
 use App\Contracts\Dao\Post\PostDaoInterface;
 use App\Contracts\Services\Post\PostServiceInterface;
-use App\Http\Requests\UpdatePostRequest;
 
 /**
  * Service class for Post
@@ -27,14 +26,24 @@ class PostServices implements PostServiceInterface
     }
 
     /**
+     * To create post by id
+     * @param $title, $description
+     * @return Object $Post Post Object
+     */
+    public function store($title, $description)
+    {
+        $this->postDao->store($title, $description);
+    }
+
+    /**
      * To show Post detail by id
      * @param string $id Post id
      */
     public function show($id)
     {
-        
+        //   
     }
-    
+
     /**
      * To edit Post by id
      * @param string $id Post id
@@ -42,18 +51,18 @@ class PostServices implements PostServiceInterface
      */
     public function edit($id)
     {
-        
+        //   
     }
 
     /**
      * To update Post by id
-     * @param UpdatePostRequest $request request with inputs
+     * @param $request request with inputs
      * @param string $id Post id
      * @return Object $Post Post Object
      */
     public function update($request, $id)
     {
-        
+        //   
     }
 
     /**
@@ -63,16 +72,6 @@ class PostServices implements PostServiceInterface
      */
     public function destroy($id)
     {
-        
-    }
-
-    /**
-     * To submit Post login 
-     * @param $request
-     * @return View Posts 
-     */
-    public function login($request)
-    {
-        
+        //   
     }
 }
