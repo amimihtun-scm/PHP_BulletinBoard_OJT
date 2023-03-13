@@ -4,12 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Contracts\Services\User\UserServiceInterface;
 use App\Http\Requests\UserLoginRequest;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
-use function PHPUnit\Framework\isEmpty;
 
 class UserLoginController extends Controller
 {
@@ -28,16 +24,19 @@ class UserLoginController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return view Login
      */
     public function index()
     {
-        return view('users.login');
+        if (!Auth::check()) {
+            return view('users.login');
+        }
+        return redirect()->back();
     }
 
     /**
      * Show the form for user login.
-     * @param  \App\Http\Requests\UserLoginRequest $request
+     * @param UserLoginRequest $request
      * @return \Illuminate\Http\Response
      */
     public function login(UserLoginRequest $request)
@@ -45,12 +44,13 @@ class UserLoginController extends Controller
         $remember_me = $request->has('remember') ? true : false;
         $credentials = $this->userInterface->login($request);
         if (Auth::attempt($credentials, $remember_me)) {
+            setcookie('remember', $remember_me, time()+(60*60));
             return redirect()->intended('post')
                 ->with('info', 'You have successfully logged in to your account.');
-        } elseif (!Hash::check($request->password, $credentials['password'])) {
-            return redirect()->back()->withInput($request->only('email'))
-                ->with('wrongPwd', 'Incorrect Password.');
         }
+
+        return redirect()->back()->withInput($request->only('email', 'password'))
+            ->with('info', 'Incorrect Username and Password');
     }
 
     /**
@@ -61,7 +61,6 @@ class UserLoginController extends Controller
     {
         Session::flush();
         Auth::logout();
-
         return redirect('login');
     }
 }

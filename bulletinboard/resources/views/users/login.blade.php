@@ -1,8 +1,13 @@
 @extends('layouts.index')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center my-5">
-            <div class="col-6">
+        <div class="row justify-content-center mt-5">
+            <div class="col-6 @if (!Auth::check()) my-5 @endif">
+                @if (session('info'))
+                    <div class="alert alert-danger @if (!Auth::check())  @endif">
+                        {{ session('info') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header bg-success text-white">
                         Login
@@ -27,11 +32,6 @@
                                         value="{{ Request::old('password') }}">
                                     @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
-                                    @endif
-                                    @if (session('wrongPwd'))
-                                        <span class="text-danger">
-                                            {{ session('wrongPwd') }}
-                                        </span>
                                     @endif
                                 </div>
                             </div>

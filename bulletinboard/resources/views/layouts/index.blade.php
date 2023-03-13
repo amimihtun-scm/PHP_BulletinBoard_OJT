@@ -17,32 +17,35 @@
 </head>
 
 <body>
-    <nav class="container-fluid bg-light py-2">
-        <div class="row text-success">
-            <div class="col-6 d-flex justify-content-start align-items-center">
-                <h3 class="me-3"><a href="#" class="text-decoration-none text-success">BulletinBoard</a></h3>
-                <a href="#" class="text-decoration-none text-success me-3">Users</a>
-                <a href="#" class="text-decoration-none text-success me-3">Posts</a>
-            </div>
-            <div class="col-6 d-flex justify-content-end align-items-center">
-                <a href="#" class="text-decoration-none text-success me-3">Create User</a>
-                <div class="dropdown">
-                    <a class="btn dropdown-toggle text-success" type="button" id="dropdownMenuLink"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @if (Auth::check())
-                            {{ Auth::user()->name }}
-                        @endif
-                        <i class="fa-solid fa-user ms-1"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a>
+    @if (Auth::check())
+        <nav class="container-fluid bg-light py-2">
+            <div class="row text-success">
+                <div class="col-6 d-flex justify-content-start align-items-center">
+                    <h3 class="me-3"><a href="#" class="text-decoration-none text-success">BulletinBoard</a>
+                    </h3>
+                    <a href="#" class="text-decoration-none text-success me-3">Users</a>
+                    <a href="#" class="text-decoration-none text-success me-3">Posts</a>
+                </div>
+                <div class="col-6 d-flex justify-content-end align-items-center">
+                    <a href="#" class="text-decoration-none text-success me-3">Create User</a>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle text-success" type="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @if (Auth::check())
+                                {{ Auth::user()->name }}
+                            @endif
+                            <i class="fa-solid fa-user ms-1"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <!--/.nav -->
+        </nav>
+        <!--/.nav -->
+    @endif
     @yield('content')
     <footer class="container-fluid bg-light py-3 fixed-bottom">
         <div class="row text-success justify-content-between align-items-center">
@@ -55,7 +58,6 @@
         </div>
     </footer>
     <!--/.footer -->
-
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"
         integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
