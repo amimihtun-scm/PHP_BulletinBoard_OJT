@@ -31,7 +31,7 @@ class UserLoginController extends Controller
         if (!Auth::check()) {
             return view('users.login');
         }
-        return redirect()->back();
+        return redirect()->route('post.index');
     }
 
     /**
