@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('user.login');
+    return redirect()->route('login');
 });
 
 Route::get('/login', [UserLoginController::class, 'index'])->name('login');
