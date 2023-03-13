@@ -37,7 +37,7 @@ class PostServices implements PostServiceInterface
 
     /**
      * To show Post detail by id
-     * @param string $id Post id
+     * @param int $id Post id
      */
     public function show($id)
     {
@@ -46,8 +46,8 @@ class PostServices implements PostServiceInterface
 
     /**
      * To edit Post by id
-     * @param string $id Post id
-     * * @return Object $Post saved Post
+     * @param int $id Post id
+     * @return Object $Post saved Post
      */
     public function edit($id)
     {
@@ -57,7 +57,7 @@ class PostServices implements PostServiceInterface
     /**
      * To update Post by id
      * @param $request request with inputs
-     * @param string $id Post id
+     * @param int $id Post id
      * @return Object $Post Post Object
      */
     public function update($request, $id)
@@ -67,8 +67,7 @@ class PostServices implements PostServiceInterface
 
     /**
      * To delete Post by id
-     * @param string $id Post id
-     * @param string $id deleted Post id
+     * @param int $id deleted Post id
      */
     public function destroy($id)
     {

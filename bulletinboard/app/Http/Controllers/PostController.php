@@ -49,8 +49,11 @@ class PostController extends Controller
      */
     public function confirm(PostCreateRequest $request)
     {
+        Session::forget('cancel');
         Session::put('title', $request->title);
         Session::put('description', $request->description);
+        Session::get('title', $request->title);
+        Session::get('description', $request->description);
         return redirect()->route('post.create');
     }
 
@@ -64,6 +67,7 @@ class PostController extends Controller
     {
         $title = Session::get('title');
         $description = Session::get('description');
+        Session::forget(['title', 'description']);
         $this->postInterface->store($title, $description);
         return redirect()->route('post.index')->with('success', 'Post created successfully.');
     }
@@ -123,7 +127,7 @@ class PostController extends Controller
         $cancel = "Cancel post";
         $title = Session::get('title');
         $description = Session::get('description');
-        Session::flush();
+        Session::forget(['title', 'description']);
         Session::put('cancel', $cancel);
         $post = [
             'title' => $title,

@@ -29,7 +29,7 @@ interface PostDaoInterface
 
     /**
      * To update Post by id
-     * @param $request request with inputs
+     * @param Request $request request with inputs
      * @param int $id Post id
      * @return Object $Post Post Object
      */
@@ -37,7 +37,6 @@ interface PostDaoInterface
 
     /**
      * To delete Post by id
-     * @param int $id Post id
      * @param int $id deleted Post id
      */
     public function destroy($id);

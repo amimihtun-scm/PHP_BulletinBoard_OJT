@@ -59,7 +59,7 @@ class PostDao implements PostDaoInterface
 
     /**
      * To delete Post by id
-     * @param int $id Post id
+     * @param int $id deleted User id
      */
     public function destroy($id)
     {
