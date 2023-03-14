@@ -16,7 +16,7 @@ class PostDao implements PostDaoInterface
      * @param $title, $description
      * @return Object $post Post Object
      */
-    public function store($title, $description)
+    public function confirm($title, $description)
     {
         $post = new Post();
         $post->title = $title;

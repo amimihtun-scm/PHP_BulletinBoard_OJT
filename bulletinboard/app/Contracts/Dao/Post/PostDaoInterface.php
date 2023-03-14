@@ -12,7 +12,7 @@ interface PostDaoInterface
      * @param $title, $description
      * @return Object $Post Post Object
      */
-    public function store($title, $description);
+    public function confirm($title, $description);
 
     /**
      * To show Post detail by id

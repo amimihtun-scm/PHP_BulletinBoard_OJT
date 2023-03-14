@@ -30,9 +30,9 @@ class PostServices implements PostServiceInterface
      * @param $title, $description
      * @return Object $Post Post Object
      */
-    public function store($title, $description)
+    public function confirm($title, $description)
     {
-        $this->postDao->store($title, $description);
+        $this->postDao->confirm($title, $description);
     }
 
     /**

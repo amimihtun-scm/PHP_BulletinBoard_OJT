@@ -50,7 +50,7 @@ class UserLoginController extends Controller
         }
 
         return redirect()->back()->withInput($request->only('email', 'password'))
-            ->with('info', 'Incorrect Username and Password');
+            ->with('info', 'Incorrect Email and Password');
     }
 
     /**

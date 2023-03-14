@@ -49,27 +49,29 @@ class PostController extends Controller
      */
     public function confirm(PostCreateRequest $request)
     {
-        Session::forget('cancel');
-        Session::put('title', $request->title);
-        Session::put('description', $request->description);
-        Session::get('title', $request->title);
-        Session::get('description', $request->description);
-        return redirect()->route('post.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $title = Session::get('title');
-        $description = Session::get('description');
-        Session::forget(['title', 'description']);
-        $this->postInterface->store($title, $description);
-        return redirect()->route('post.index')->with('success', 'Post created successfully.');
+        switch ($request->input('action')) {
+            case "create":
+                $post = [
+                    'title' => $request->title,
+                    'description' => $request->description,
+                ];
+                Session::put('post', $post);
+                return view('posts.create');
+                break;
+            case "confirm":
+                $post = Session::get('post');
+                Session::forget('post');
+                $this->postInterface->confirm($post['title'], $post['description']);
+                return redirect()->route('post.index')->with('success', 'Post created successfully.');
+                break;
+            case "cancel":
+                $post = Session::get('post');
+                Session::forget('post');
+                return redirect()->route('post.create')->withInput(['title' => $post['title'], 'description' => $post['description']]);
+                break;
+            default:
+                return view('posts.create');
+        }
     }
 
     /**
@@ -115,24 +117,5 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Cancel post.
-     * @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function cancel(Request $request)
-    {
-        $cancel = "Cancel post";
-        $title = Session::get('title');
-        $description = Session::get('description');
-        Session::forget(['title', 'description']);
-        Session::put('cancel', $cancel);
-        $post = [
-            'title' => $title,
-            'description' => $description,
-        ];
-        return view('posts.create', compact('post'));
     }
 }
