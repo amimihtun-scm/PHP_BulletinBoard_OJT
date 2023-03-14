@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserLoginController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,24 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.index');
+    return redirect()->route('login');
 });
 
-Route::get('/login', function () {
-    return view('users.login');
-});
+Route::get('/login', [UserLoginController::class, 'index'])->name('login');
+Route::post('/user/login', [UserLoginController::class, 'login'])->name('user.login');
+Route::get('/logout', [UserLoginController::class, 'logout'])->name('user.logout');
 
-Route::get('/post/list', function () {
-    return view('posts.list');
-});
-
-Route::get('/post/create', function () {
-    return view('posts.create');
-});
-
-Route::get('/post/create/confirm', function () {
-    return view('posts.create-confirm');
-});
+Route::get('/post', [PostController::class, 'index'])->name('post.index');
+Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('/post/confirm', [PostController::class, 'confirm'])->name('post.confirm');
 
 Route::get('/post/edit', function () {
     return view('posts.edit');

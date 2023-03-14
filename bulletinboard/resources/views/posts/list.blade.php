@@ -3,6 +3,16 @@
     <div class="container justify-content-center my-5">
         <div class="row">
             <div class="col-10 offset-1">
+                @if (session('info'))
+                    <div class="alert alert-info">
+                        {{ session('info') }}
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header bg-success text-white">
                         Post List
@@ -10,17 +20,15 @@
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <div class="form-group d-flex justify-content-between col-8 offset-2 align-items-center">
-                                    <div class="d-flex col-lg-7">
-                                        <label for="keyword" class="form-label me-4">keyword:</label>
-                                    <input type="text" class="form-control me-4" id="keyword" name="keyword">
-                                    </div>
-                                    <div class="d-flex justify-content-evenly">
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Search</button>
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Create</button>
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Upload</button>
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Download</button>
-                                    </div>
+                                <div class="form-group d-flex justify-content-between col-5 align-items-center">
+                                    <label for="keyword" class="form-label me-2">keyword:</label>
+                                    <input type="text" class="form-control" id="keyword" name="keyword">
+                                </div>
+                                <div class="col-6 offset-1">
+                                    <button type="submit" class="btn btn-success text-white">Search</button>
+                                    <button type="submit" class="btn btn-success text-white">Create</button>
+                                    <button type="submit" class="btn btn-success text-white">Upload</button>
+                                    <button type="submit" class="btn btn-success text-white">Download</button>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -48,7 +56,7 @@
                                                 <td>Admin</td>
                                                 <td>2023/03/01</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-info me-3">Edit</button>
+                                                    <button class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -68,7 +76,7 @@
                                                 <td>Admin</td>
                                                 <td>2023/02/10</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-info me-3">Edit</button>
+                                                    <button class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -88,7 +96,7 @@
                                                 <td>Admin</td>
                                                 <td>2022/12/21</td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-info me-3">Edit</button>
+                                                    <button class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -108,7 +116,7 @@
                                                 <td>Admin</td>
                                                 <td>2023/01/26</td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-sm btn-info me-3">Edit</button>
+                                                    <button type="submit" class="btn btn-sm btn-info">Edit</button>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-sm btn-danger"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
