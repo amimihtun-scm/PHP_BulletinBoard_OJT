@@ -4,6 +4,7 @@ namespace App\Dao\Post;
 
 use App\Contracts\Dao\Post\PostDaoInterface;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -11,6 +12,22 @@ use Illuminate\Support\Facades\Auth;
  */
 class PostDao implements PostDaoInterface
 {
+    /**
+     * To show create patient view
+     * 
+     * @return View patients
+     */
+    public function index()
+    {
+        if (Auth::user()->type == 1) {
+            $posts = Post::paginate(config('data.pagination'));
+        } else {
+            $users = User::where('id', Auth::user()->id)->firstOrFail();
+            $posts = Post::where('create_user_id', $users->id)->paginate(config('data.pagination'));
+        }
+        return $posts;
+    }
+
     /**
      * To create post by id
      * @param $title, $description

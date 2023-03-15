@@ -26,6 +26,7 @@ Route::get('/logout', [UserLoginController::class, 'logout'])->name('user.logout
 Route::get('/post', [PostController::class, 'index'])->name('post.index');
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 Route::post('/post/confirm', [PostController::class, 'confirm'])->name('post.confirm');
+Route::get('/post/search', [PostController::class, 'search'])->name('post.search');
 
 Route::get('/post/edit', function () {
     return view('posts.edit');

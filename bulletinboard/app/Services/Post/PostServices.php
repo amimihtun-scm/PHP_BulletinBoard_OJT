@@ -26,6 +26,16 @@ class PostServices implements PostServiceInterface
     }
 
     /**
+     * To show post view
+     * 
+     * @return View posts
+     */
+    public function index()
+    {
+        return $this->postDao->index();
+    }
+
+    /**
      * To create post by id
      * @param $title, $description
      * @return Object $Post Post Object

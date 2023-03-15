@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contracts\Services\Post\PostServiceInterface;
 use App\Http\Requests\PostCreateRequest;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
@@ -28,7 +30,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.list');
+        $posts = $this->postInterface->index();
+        $users = User::get();
+        return view('posts.list', compact(['posts', 'users']));
     }
 
     /**
@@ -71,6 +75,27 @@ class PostController extends Controller
                 break;
             default:
                 return view('posts.create');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return view
+     */
+    public function search(Request $request)
+    {
+        $users = User::get();
+        $search = $request->get('search');
+        if ($search == '') {
+            return redirect()->route('post.index');
+        } else {
+            $posts = Post::where('title', 'Like', '%' . $search . '%')
+                ->orwhere('description', 'Like', '%' . $search . '%')
+                ->paginate(config('data.pagination'));
+            $posts->appends(['search' => $search]);
+            return view('posts.list', compact(['posts', 'users']));
         }
     }
 

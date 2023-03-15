@@ -8,6 +8,13 @@ namespace App\Contracts\Services\Post;
 interface PostServiceInterface
 {
     /**
+     * To show post view
+     *
+     * @return View posts
+     */
+    public function index();
+
+    /**
      * To create post by id
      * @param $title, $description
      * @return Object $Post Post Object
