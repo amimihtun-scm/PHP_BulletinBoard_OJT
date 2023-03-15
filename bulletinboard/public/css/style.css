@@ -5,3 +5,8 @@
 .user-profile {
     width: 100px;
 }
+
+.disabled {
+    pointer-events: none;
+    background-color: #efecec;
+}

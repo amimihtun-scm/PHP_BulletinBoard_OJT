@@ -3,24 +3,34 @@
     <div class="container justify-content-center my-5">
         <div class="row">
             <div class="col-10 offset-1">
+                @if (session('info'))
+                    <div class="alert alert-info">
+                        {{ session('info') }}
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header bg-success text-white">
                         Post List
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form method="GET" action="{{ route('post.search') }}">
+                            @csrf
                             <div class="row">
-                                <div class="form-group d-flex justify-content-between col-8 offset-2 align-items-center">
-                                    <div class="d-flex col-lg-7">
-                                        <label for="keyword" class="form-label me-4">keyword:</label>
-                                    <input type="text" class="form-control me-4" id="keyword" name="keyword">
-                                    </div>
-                                    <div class="d-flex justify-content-evenly">
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Search</button>
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Create</button>
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Upload</button>
-                                        <button type="submit" class="btn btn-success px-lg-4 text-white me-3">Download</button>
-                                    </div>
+                                <div class="form-group d-flex justify-content-between col-5 align-items-center">
+                                    <label for="keyword" class="form-label me-2">keyword:</label>
+                                    <input class="form-control" type="search" aria-label="search" name="search"
+                                        value="{{ request('search') }}">
+                                </div>
+                                <div class="col-6 offset-1">
+                                    <button type="submit" class="btn btn-success text-white">Search</button>
+                                    <a href="{{ route('post.create') }}" class="btn btn-success text-white">Create</a>
+                                    <button type="submit" class="btn btn-success text-white">Upload</button>
+                                    <button type="submit" class="btn btn-success text-white">Download</button>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -36,100 +46,46 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <!-- Button trigger modal -->
-                                                    <a href="" class="text-decoration-none" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal1">
-                                                        Title0
-                                                    </a>
-                                                </td>
-                                                <td>Description0</td>
-                                                <td>Admin</td>
-                                                <td>2023/03/01</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info me-3">Edit</button>
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <!-- Button trigger modal -->
-                                                    <a href="" class="text-decoration-none" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal1">
-                                                        Title1
-                                                    </a>
-                                                </td>
-                                                <td>Description1</td>
-                                                <td>Admin</td>
-                                                <td>2023/02/10</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info me-3">Edit</button>
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <!-- Button trigger modal -->
-                                                    <a href="" class="text-decoration-none" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal1">
-                                                        Title2
-                                                    </a>
-                                                </td>
-                                                <td>Description2</td>
-                                                <td>Admin</td>
-                                                <td>2022/12/21</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info me-3">Edit</button>
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <!-- Button trigger modal -->
-                                                    <a href="" class="text-decoration-none" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal1">
-                                                        Title3
-                                                    </a>
-                                                </td>
-                                                <td>Description3</td>
-                                                <td>Admin</td>
-                                                <td>2023/01/26</td>
-                                                <td>
-                                                    <button type="submit" class="btn btn-sm btn-info me-3">Edit</button>
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                            @if (count($posts) < 1)
+                                                <tr>
+                                                    <td colspan="5" class="text-center">No data available in table</td>
+                                                </tr>
+                                            @else
+                                                @foreach ($posts as $post)
+                                                    <tr>
+                                                        <td class="col-3">
+                                                            <!-- Button trigger modal -->
+                                                            <a href="" class="text-decoration-none"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                                {{ $post->title }}
+                                                            </a>
+                                                        </td>
+                                                        <td class="col-3">{{ $post->description }}</td>
+                                                        @foreach ($users as $user)
+                                                            @if ($user->id == $post->create_user_id)
+                                                                <td>{{ $user->name }}</td>
+                                                            @endif
+                                                        @endforeach
+                                                        <td>{{ date('Y/m/d', strtotime($post->created_at)) }}</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info">Edit</button>
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-sm btn-danger"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                Delete
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
+                                    <div class="mt-3 d-flex justify-content-end">
+                                        {{ $posts->links() }}
+                                    </div>
                                 </div>
                             </div>
                         </form>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
